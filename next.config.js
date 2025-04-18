@@ -11,6 +11,8 @@ const nextConfig = {
   },
   // Set the output to 'export' for static site generation compatible with Cloudflare Pages
   output: 'export',
+  // Add trailing slashes for better compatibility with static hosting
+  trailingSlash: true,
   // Disable image optimization since Cloudflare Pages doesn't support it in static exports
   images: {
     unoptimized: true,
