@@ -1,3 +1,31 @@
+# Hair Transplant Directory
+
+A directory for finding hair transplant clinics in Los Angeles.
+
+## Cloudflare Pages Deployment
+
+When deploying to Cloudflare Pages, use the following settings:
+
+1. **Build command**: `npm run build`
+2. **Build output directory**: `out`
+3. **Root directory**: `/` (root of the repository)
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+```
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
