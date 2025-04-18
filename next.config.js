@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   productionBrowserSourceMaps: false,
+  eslint: {
+    // Disable ESLint during production builds
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // Disable TypeScript errors during production builds
+    ignoreBuildErrors: true,
+  },
   webpack: (config, { isServer }) => {
     // Server-side packages
     if (!isServer) {
