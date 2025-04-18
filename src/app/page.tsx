@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section with Banner */}
-      <section className="relative mb-12 overflow-hidden rounded-lg h-[300px]">
+      <section className="relative mb-8 md:mb-12 overflow-hidden rounded-lg h-[250px] md:h-[300px]">
         {/* Banner Background */}
         <div className="absolute inset-0 bg-gray-700">
           <div className="absolute inset-0 opacity-60">
@@ -66,11 +66,11 @@ export default function Home() {
           </div>
         </div>
         {/* Banner Content */}
-        <div className="relative h-full flex flex-col justify-center items-center px-6 text-center z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{textShadow: "0 3px 5px rgba(0,0,0,0.9)"}}>
+        <div className="relative h-full flex flex-col justify-center items-center px-4 md:px-6 text-center z-10">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-4" style={{textShadow: "0 3px 5px rgba(0,0,0,0.9)"}}>
             Top Hair Transplant in Los Angeles
           </h1>
-          <p className="text-xl text-white mb-6 max-w-3xl mx-auto" style={{textShadow: "0 2px 4px rgba(0,0,0,0.9)"}}>
+          <p className="text-base md:text-xl text-white mb-4 md:mb-6 max-w-3xl mx-auto" style={{textShadow: "0 2px 4px rgba(0,0,0,0.9)"}}>
             Find and compare the best hair transplant and restoration clinics in Los Angeles.
             Browse our comprehensive list of clinics ranked by customer reviews and ratings.
           </p>
@@ -78,20 +78,20 @@ export default function Home() {
       </section>
       
       {/* Top Rated Clinics Section */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">Top Hair Transplant Clinics Near You</h2>
+      <section className="mb-10 md:mb-16">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-8">Top Hair Transplant Clinics Near You</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {topRatedClinics.map((clinic, index) => {
             // Get website URL from the website map instead of directly from clinic object
             let websiteUrl = getWebsiteByTitle(clinic.title) || clinic.website || '#';
             let relAttribute = websiteUrl === '#' ? 'nofollow' : 'noopener noreferrer';
             
             return (
-              <div key={index} className="mb-8">
+              <div key={index} className="mb-4 md:mb-8">
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-5">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{clinic.title}</h3>
+                  <div className="p-4 md:p-5">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{clinic.title}</h3>
                     <div className="flex items-center mb-2">
                       <div className="text-yellow-500 font-medium mr-2">{clinic.rating?.toFixed(1) || 'N/A'} ★</div>
                       <div className="text-sm text-gray-600">
@@ -140,7 +140,7 @@ export default function Home() {
                         href={websiteUrl} 
                         target="_blank" 
                         rel={relAttribute} 
-                        className={`inline-flex items-center py-2 px-3 rounded text-sm font-medium ${
+                        className={`inline-flex items-center py-2 px-3 rounded text-sm font-medium w-full md:w-auto justify-center ${
                           websiteUrl === "#" 
                             ? "bg-gray-100 text-gray-500 cursor-not-allowed" 
                             : "bg-blue-50 text-blue-600 hover:bg-blue-100"
@@ -161,20 +161,20 @@ export default function Home() {
       </section>
       
       {/* Cities Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      <section className="mb-8 md:mb-12">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
           Browse by LA Neighborhoods
         </h2>
         
         {cities.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {cities.map((city, index) => (
               <Link 
                 key={index} 
                 href={`/${city.urlSlug}`}
-                className="bg-white shadow rounded-lg p-4 hover:shadow-md transition flex items-center justify-center"
+                className="bg-white shadow rounded-lg p-3 md:p-4 hover:shadow-md transition flex items-center justify-center"
               >
-                <span className="text-lg font-medium text-gray-700">{city.name}</span>
+                <span className="text-base md:text-lg font-medium text-gray-700">{city.name}</span>
               </Link>
             ))}
           </div>

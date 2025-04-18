@@ -48,3 +48,9 @@ body {
 .text-shadow {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+/* Extra small text for mobile devices */
+.text-2xs {
+  font-size: 0.65rem;
+  line-height: 0.9rem;
+}

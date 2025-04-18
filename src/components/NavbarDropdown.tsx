@@ -60,7 +60,7 @@ export default function NavbarDropdown({ title, items }: NavbarDropdownProps) {
   return (
     <li ref={dropdownRef} className="relative">
       <button 
-        className="text-gray-800 hover:text-blue-600 font-medium flex items-center cursor-pointer bg-transparent border-0 p-0"
+        className="text-sm md:text-base text-gray-800 hover:text-blue-600 font-medium flex items-center cursor-pointer bg-transparent border-0 p-0 px-2 py-1"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -68,7 +68,7 @@ export default function NavbarDropdown({ title, items }: NavbarDropdownProps) {
         {title}
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
-          className={`h-4 w-4 ml-1 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+          className={`h-3 w-3 md:h-4 md:w-4 ml-1 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
           viewBox="0 0 24 24" 
           stroke="currentColor"
@@ -79,13 +79,13 @@ export default function NavbarDropdown({ title, items }: NavbarDropdownProps) {
       </button>
       
       {isOpen && (
-        <div className="absolute left-0 top-full mt-1 w-60 z-30">
-          <div className="bg-white rounded-md shadow-lg overflow-hidden py-2 max-h-96 overflow-y-auto border border-gray-200">
+        <div className="absolute left-0 md:left-auto right-0 md:right-auto top-full mt-1 w-48 sm:w-60 z-30">
+          <div className="bg-white rounded-md shadow-lg overflow-hidden py-2 max-h-[calc(100vh-100px)] overflow-y-auto border border-gray-200">
             {items.map((item, index) => (
               <Link 
                 key={index} 
                 href={`/${item.urlSlug}`} 
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 focus:bg-blue-50 focus:outline-none"
+                className="block px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm text-gray-700 hover:bg-blue-50 focus:bg-blue-50 focus:outline-none"
                 onClick={() => setIsOpen(false)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 tabIndex={0}
