@@ -9,6 +9,12 @@ const nextConfig = {
     // Disable TypeScript errors during production builds
     ignoreBuildErrors: true,
   },
+  // Set the output to 'export' for static site generation compatible with Cloudflare Pages
+  output: 'export',
+  // Disable image optimization since Cloudflare Pages doesn't support it in static exports
+  images: {
+    unoptimized: true,
+  },
   webpack: (config, { isServer }) => {
     // Server-side packages
     if (!isServer) {

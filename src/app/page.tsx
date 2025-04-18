@@ -59,6 +59,7 @@ export default function Home() {
               src="/images/hair-transplant-banner.png" 
               alt="Hair transplant banner" 
               fill 
+              unoptimized
               style={{ objectFit: 'cover', objectPosition: 'center' }}
               priority
             />

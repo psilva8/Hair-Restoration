@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { 
   getBusinessesByCity, 
-  getCityBySlug
+  getCityBySlug,
+  getAllCitySlugs
 } from '../../utils/data-utils';
 import BusinessCard from '../../components/BusinessCard';
 
@@ -10,6 +11,14 @@ interface CityPageProps {
   params: {
     city: string
   }
+}
+
+// Generate all possible city pages at build time
+export function generateStaticParams() {
+  const citySlugs = getAllCitySlugs();
+  return citySlugs.map(city => ({
+    city: city
+  }));
 }
 
 export default function CityPage({ params }: CityPageProps) {
