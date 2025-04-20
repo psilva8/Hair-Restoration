@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Top Hair Transplant in Los Angeles | Best Clinics & Reviews',
   description: 'Find the best hair transplant clinics in Los Angeles. Compare ratings, reviews, and services to choose the right hair restoration specialists in LA.',
+  verification: {
+    google: 'odG8vbaFqqExoaVTv_S6vlieK7l2FTZ-AsRyrDi3oDk',
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta name="google-site-verification" content="odG8vbaFqqExoaVTv_S6vlieK7l2FTZ-AsRyrDi3oDk" />
       </head>
       <body className={inter.className}>
         <header className="bg-white shadow-md sticky top-0 z-50">
