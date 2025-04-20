@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    // IMPORTANT: Replace this URL with your actual deployed URL from Vercel
-    sitemap: 'https://hair-transplant-directory.vercel.app/sitemap.xml',
+    // Using the actual live domain
+    sitemap: 'https://www.hairrestoration.life/sitemap.xml',
   };
 } 

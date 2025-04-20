@@ -6,8 +6,8 @@ export const dynamic = 'force-static';
 export const revalidate = 3600; // Revalidate every hour
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // IMPORTANT: Replace this URL with your actual deployed URL from Vercel
-  const baseUrl = 'https://hair-transplant-directory.vercel.app'; 
+  // Using the actual live domain
+  const baseUrl = 'https://www.hairrestoration.life';
   const cities = getCities();
   
   // Base routes
