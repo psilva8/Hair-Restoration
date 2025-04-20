@@ -1,6 +1,10 @@
 import { getCities } from '@/utils/data-utils';
 import { MetadataRoute } from 'next';
 
+// Add the required dynamic configuration for static export
+export const dynamic = 'force-static';
+export const revalidate = 3600; // Revalidate every hour
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://hair-transplant-directory.vercel.app'; // Replace with your actual domain
   const cities = getCities();
