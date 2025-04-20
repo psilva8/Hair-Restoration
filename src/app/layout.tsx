@@ -31,7 +31,8 @@ export default function RootLayout({
             <div className="flex flex-col sm:flex-row items-center justify-between py-3 md:py-4">
               {/* Logo */}
               <Link href="/" className="text-xl md:text-2xl font-bold mb-3 sm:mb-0">
-                Top Hair Transplant in LA
+                <span className="hidden sm:inline">Top Hair Transplant in LA</span>
+                <span className="sm:hidden">Hair Transplant LA</span>
               </Link>
               
               {/* Navigation */}
