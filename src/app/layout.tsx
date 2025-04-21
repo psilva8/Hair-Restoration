@@ -4,9 +4,12 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { getCities } from '@/utils/data-utils';
 import NavbarDropdown from '@/components/NavbarDropdown';
-import Script from 'next/script';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({ subsets: ['latin'] });
+
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = 'G-86TXW9HPH6';
 
 export const metadata: Metadata = {
   title: 'Top Hair Transplant in Los Angeles | Best Clinics & Reviews',
@@ -29,20 +32,11 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <meta name="google-site-verification" content="odG8vbaFqqExoaVTv_S6vlieK7l2FTZ-AsRyrDi3oDk" />
-        
-        {/* Google Analytics 4 */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-86TXW9HPH6" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-86TXW9HPH6');
-          `}
-        </Script>
-        {/* End Google Analytics */}
       </head>
       <body className={inter.className}>
+        {/* Google Analytics */}
+        <GoogleAnalytics />
+        
         <header className="bg-white shadow-md sticky top-0 z-50">
           <div className="container mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-center justify-between py-3 md:py-4">
