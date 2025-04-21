@@ -32,9 +32,23 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <meta name="google-site-verification" content="odG8vbaFqqExoaVTv_S6vlieK7l2FTZ-AsRyrDi3oDk" />
+        
+        {/* Google tag (gtag.js) - direct implementation */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DP84WMQJHX"></script>
+        <script 
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-DP84WMQJHX');
+            `
+          }}
+        />
       </head>
       <body className={inter.className}>
-        {/* Google Analytics */}
+        {/* Google Analytics component - as backup */}
         <GoogleAnalytics />
         
         <header className="bg-white shadow-md sticky top-0 z-50">

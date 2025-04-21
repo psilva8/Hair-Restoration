@@ -5,7 +5,7 @@ import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 
 // Measurement ID
-const GA_MEASUREMENT_ID = 'G-86TXW9HPH6';
+const GA_MEASUREMENT_ID = 'G-DP84WMQJHX';
 
 // Add type for gtag
 declare global {
