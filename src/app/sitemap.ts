@@ -13,19 +13,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Base routes
   const routes = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/about/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/contact/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // Add city routes
   const cityRoutes = cities.map(city => ({
-    url: `${baseUrl}/${city.urlSlug}`,
+    url: `${baseUrl}/${city.urlSlug}/`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.9,

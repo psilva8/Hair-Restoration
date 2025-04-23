@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     // Using the actual live domain
-    sitemap: 'https://www.hairrestoration.life/sitemap.xml',
+    sitemap: 'https://www.hairrestoration.life/sitemap.xml/',
   };
 } 
