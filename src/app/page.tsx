@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getCities, getBusinessesByCity, getWebsiteByTitle } from '@/utils/data-utils';
 import FAQ from '@/components/FAQ';
 import Image from 'next/image';
+import BusinessCard from '../components/BusinessCard';
 
 export default function Home() {
   const cities = getCities();
@@ -82,81 +83,11 @@ export default function Home() {
         <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-8">Top Hair Transplant Clinics Near You</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          {topRatedClinics.map((clinic, index) => {
-            // Get website URL from the website map instead of directly from clinic object
-            let websiteUrl = getWebsiteByTitle(clinic.title) || clinic.website || '#';
-            let relAttribute = websiteUrl === '#' ? 'nofollow' : 'noopener noreferrer';
-            
-            return (
-              <div key={index} className="mb-4 md:mb-8">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-4 md:p-5">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{clinic.title}</h3>
-                    <div className="flex items-center mb-2">
-                      <div className="text-yellow-500 font-medium mr-2">{clinic.rating?.toFixed(1) || 'N/A'} ★</div>
-                      <div className="text-sm text-gray-600">
-                        ({clinic.reviewsCount} reviews)
-                      </div>
-                    </div>
-                    
-                    {/* Address and Contact Information - Enhanced */}
-                    <div className="mt-3 p-2 bg-gray-50 rounded-md">
-                      {clinic.address && (
-                        <div className="flex items-start mb-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                          </svg>
-                          <div>
-                            <p className="text-sm font-medium text-gray-700">Address:</p>
-                            <p className="text-sm text-gray-600">
-                              {clinic.address}
-                            </p>
-                          </div>
-                        </div>
-                      )}
-                      
-                      {clinic.phone && (
-                        <div className="flex items-start">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                          </svg>
-                          <div>
-                            <p className="text-sm font-medium text-gray-700">Phone:</p>
-                            <p className="text-sm text-gray-600">
-                              {clinic.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="text-gray-600 mt-3 mb-3">
-                      <span className="font-semibold">City:</span> {clinic.city}
-                    </div>
-                    
-                    <div className="mt-4 pt-3 border-t border-gray-100">
-                      <a 
-                        href={websiteUrl} 
-                        target="_blank" 
-                        rel={relAttribute} 
-                        className={`inline-flex items-center py-2 px-3 rounded text-sm font-medium w-full md:w-auto justify-center ${
-                          websiteUrl === "#" 
-                            ? "bg-gray-100 text-gray-500 cursor-not-allowed" 
-                            : "bg-blue-50 text-blue-600 hover:bg-blue-100"
-                        }`}
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        {websiteUrl === "#" ? "No Website Available" : "Visit Website"}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {topRatedClinics.map((clinic, index) => (
+            <div key={index} className="mb-4 md:mb-8">
+              <BusinessCard business={clinic} />
+            </div>
+          ))}
         </div>
       </section>
       
