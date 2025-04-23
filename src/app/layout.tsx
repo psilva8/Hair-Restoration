@@ -109,19 +109,6 @@ export default function RootLayout({
                   ))}
                 </ul>
               </div>
-              
-              <div>
-                <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Contact</h3>
-                <p className="text-gray-300 text-xs md:text-sm mb-2">
-                  Have questions about hair transplants in Los Angeles?
-                </p>
-                <Link 
-                  href="/contact"
-                  className="bg-blue-600 text-white py-1.5 md:py-2 px-3 md:px-4 rounded text-xs md:text-sm hover:bg-blue-700 inline-block"
-                >
-                  Contact Us
-                </Link>
-              </div>
             </div>
             
             <div className="border-t border-gray-700 mt-6 md:mt-8 pt-4 md:pt-6 text-center text-gray-400 text-xs md:text-sm">
