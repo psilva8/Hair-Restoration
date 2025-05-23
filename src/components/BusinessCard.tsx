@@ -1,7 +1,7 @@
 import React from 'react';
 import { Business, getWebsiteByTitle } from '@/utils/data-utils';
 import { StarIcon } from '@heroicons/react/20/solid';
-import { LinkIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { LinkIcon, PhoneIcon, MapPinIcon, BuildingOffice2Icon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import clinicImages from '@/data/clinic-images.json';
 
@@ -26,9 +26,9 @@ export default function BusinessCard({ business }: BusinessCardProps) {
   
   return (
     <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-      {/* Clinic Image */}
-      {clinicPhoto && (
-        <div className="relative h-32 sm:h-36 md:h-40 w-full">
+      {/* Clinic Image or Placeholder */}
+      <div className="relative h-32 sm:h-36 md:h-40 w-full">
+        {clinicPhoto ? (
           <Image
             src={clinicPhoto}
             alt={`${title} clinic`}
@@ -36,8 +36,15 @@ export default function BusinessCard({ business }: BusinessCardProps) {
             style={{ objectFit: 'cover' }}
             className="rounded-t-lg"
           />
-        </div>
-      )}
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center">
+            <div className="text-center">
+              <BuildingOffice2Icon className="h-8 w-8 md:h-10 md:w-10 text-blue-400 mx-auto mb-1" />
+              <p className="text-xs md:text-sm text-gray-600 font-medium">Hair Clinic</p>
+            </div>
+          </div>
+        )}
+      </div>
       
       <div className="p-2.5 sm:p-3 md:p-4">
         <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 line-clamp-2">{title}</h3>
