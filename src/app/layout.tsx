@@ -109,6 +109,17 @@ export default function RootLayout({
                   ))}
                 </ul>
               </div>
+
+              <div className="text-right">
+                <Link 
+                  href="https://www.paulsilvamarketing.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white text-xs md:text-sm"
+                >
+                  Marketing by Paul Silva
+                </Link>
+              </div>
             </div>
             
             <div className="border-t border-gray-700 mt-6 md:mt-8 pt-4 md:pt-6 text-center text-gray-400 text-xs md:text-sm">
