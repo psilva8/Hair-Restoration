@@ -24,15 +24,6 @@ export default function BusinessCard({ business }: BusinessCardProps) {
   const clinicImageData = (clinicImages as Record<string, { photo: string | null, logo: string | null }>)[title];
   const clinicPhoto = clinicImageData?.photo;
   
-  // Debug logging for specific clinics
-  if (title === "Natural Scalp" || title === "Hair Transplant Los Angeles Dr. Sean Behnam") {
-    console.log(`🔍 DEBUG: ${title}`, {
-      hasImageData: !!clinicImageData,
-      photoPath: clinicPhoto,
-      imageMapping: clinicImageData
-    });
-  }
-  
   return (
     <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
       {/* Clinic Image or Placeholder */}
@@ -42,12 +33,6 @@ export default function BusinessCard({ business }: BusinessCardProps) {
             src={clinicPhoto}
             alt={`${title} clinic`}
             className="w-full h-full object-cover rounded-t-lg"
-            onError={(e) => {
-              console.error(`❌ Image failed to load: ${clinicPhoto}`, e);
-            }}
-            onLoad={() => {
-              console.log(`✅ Image loaded successfully: ${clinicPhoto}`);
-            }}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center">
