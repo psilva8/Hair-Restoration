@@ -186,7 +186,14 @@ export default function Home() {
             Looking for a Non-Surgical Alternative?
           </h2>
           <p className="text-lg text-gray-700 mb-6">
-            Consider Scalp Micropigmentation (SMP) - a revolutionary non-invasive treatment that creates the appearance of fuller hair through specialized micro-pigmentation techniques.
+            Consider <a 
+              href="https://micropigmentationla.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-600 hover:text-purple-800 font-semibold underline decoration-2 underline-offset-2 hover:decoration-purple-800 transition-colors"
+            >
+              Scalp Micropigmentation (SMP)
+            </a> - a revolutionary non-invasive treatment that creates the appearance of fuller hair through specialized micro-pigmentation techniques.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
