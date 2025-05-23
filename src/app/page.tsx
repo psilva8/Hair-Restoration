@@ -4,6 +4,7 @@ import { getCities, getBusinessesByCity, getWebsiteByTitle } from '@/utils/data-
 import FAQ from '@/components/FAQ';
 import Image from 'next/image';
 import BusinessCard from '../components/BusinessCard';
+import clinicImages from '@/data/clinic-images.json';
 
 export default function Home() {
   const cities = getCities();
@@ -35,14 +36,22 @@ export default function Home() {
   
   console.log(`Clinics specializing exclusively in Hair Transplant (filtered): ${hairTransplantOnlyClinics.length}`);
   
-  // Sort by rating and review count (using a weighted score)
+  // Sort by rating and review count (using a weighted score) with bonus for having images
   const topRatedClinics = [...hairTransplantOnlyClinics]
     .sort((a, b) => {
       // Calculate a score based on rating and review count
       // This gives higher weight to clinics with more reviews
       const scoreA = (a.rating || 0) * Math.log10(a.reviewsCount + 1);
       const scoreB = (b.rating || 0) * Math.log10(b.reviewsCount + 1);
-      return scoreB - scoreA;
+      
+      // Give bonus points to clinics with images (add 5 points to their score)
+      const hasImageA = (clinicImages as Record<string, any>)[a.title]?.photo ? 5 : 0;
+      const hasImageB = (clinicImages as Record<string, any>)[b.title]?.photo ? 5 : 0;
+      
+      const finalScoreA = scoreA + hasImageA;
+      const finalScoreB = scoreB + hasImageB;
+      
+      return finalScoreB - finalScoreA;
     })
     .slice(0, 12);
   
