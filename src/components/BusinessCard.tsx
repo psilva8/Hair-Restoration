@@ -2,7 +2,7 @@ import React from 'react';
 import { Business, getWebsiteByTitle } from '@/utils/data-utils';
 import { StarIcon } from '@heroicons/react/20/solid';
 import { LinkIcon, PhoneIcon, MapPinIcon, BuildingOffice2Icon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
+// import Image from 'next/image';
 import clinicImages from '@/data/clinic-images.json';
 
 interface BusinessCardProps {
@@ -24,17 +24,30 @@ export default function BusinessCard({ business }: BusinessCardProps) {
   const clinicImageData = (clinicImages as Record<string, { photo: string | null, logo: string | null }>)[title];
   const clinicPhoto = clinicImageData?.photo;
   
+  // Debug logging for specific clinics
+  if (title === "Natural Scalp" || title === "Hair Transplant Los Angeles Dr. Sean Behnam") {
+    console.log(`🔍 DEBUG: ${title}`, {
+      hasImageData: !!clinicImageData,
+      photoPath: clinicPhoto,
+      imageMapping: clinicImageData
+    });
+  }
+  
   return (
     <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
       {/* Clinic Image or Placeholder */}
       <div className="relative h-32 sm:h-36 md:h-40 w-full">
         {clinicPhoto ? (
-          <Image
+          <img
             src={clinicPhoto}
             alt={`${title} clinic`}
-            fill
-            style={{ objectFit: 'cover' }}
-            className="rounded-t-lg"
+            className="w-full h-full object-cover rounded-t-lg"
+            onError={(e) => {
+              console.error(`❌ Image failed to load: ${clinicPhoto}`, e);
+            }}
+            onLoad={() => {
+              console.log(`✅ Image loaded successfully: ${clinicPhoto}`);
+            }}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center">
