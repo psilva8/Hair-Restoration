@@ -178,6 +178,51 @@ export default function Home() {
       
       {/* FAQ Section */}
       <FAQ />
+      
+      {/* SMP Alternative Section */}
+      <section className="mt-12 mb-8 bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+            Looking for a Non-Surgical Alternative?
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Consider Scalp Micropigmentation (SMP) - a revolutionary non-invasive treatment that creates the appearance of fuller hair through specialized micro-pigmentation techniques.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <h3 className="font-semibold text-gray-800 mb-2">✨ Immediate Results</h3>
+              <p className="text-sm text-gray-600">See dramatic improvements after just one session with minimal downtime required.</p>
+            </div>
+            
+            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <h3 className="font-semibold text-gray-800 mb-2">🏥 Non-Surgical</h3>
+              <p className="text-sm text-gray-600">No incisions, stitches, or lengthy recovery periods - just natural-looking results.</p>
+            </div>
+            
+            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <h3 className="font-semibold text-gray-800 mb-2">💰 Cost-Effective</h3>
+              <p className="text-sm text-gray-600">Significantly more affordable than traditional hair transplant procedures.</p>
+            </div>
+          </div>
+          
+          <p className="text-gray-600 mb-6">
+            Scalp Micropigmentation creates the illusion of hair follicles using advanced micro-needles and specialized pigments, perfect for pattern baldness, alopecia, and scar camouflage.
+          </p>
+          
+          <a 
+            href="https://micropigmentationla.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-purple-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            Check It Out
+            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </section>
     </div>
   );
 }
